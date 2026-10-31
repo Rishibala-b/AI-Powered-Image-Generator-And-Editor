@@ -1,0 +1,14 @@
+# Tested to resolve together (pip dry-run). Recommended: Python 3.10 or 3.11.
+streamlit==1.31.0
+google-genai>=2.0          # replaces langchain + langchain-google-genai
+python-dotenv
+Pillow
+numpy==1.26.4
+pyarrow<26                 # pyarrow 26 needs NumPy 2 -> "import streamlit" crashes with numpy 1.26
+torch==2.2.0
+diffusers==0.26.3
+transformers==4.38.2       # was unpinned -> can clash with torch 2.2 / hub 0.25
+accelerate==0.27.2
+huggingface_hub==0.25.2    # diffusers 0.26.3 breaks on hub >= 0.26
+peft==0.10.0               # NEW: required for the LoRA adapters
+safetensors
